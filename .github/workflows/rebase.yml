@@ -1,10 +1,10 @@
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '30 2 * * *'
+    - cron:  '30 * * * *'
   
 env:
-  BASE_GIT_HTTPS: "https://aur.archlinux.org/autotiling.git"
+  UPSTREAM_GIT_HTTPS: "https://aur.archlinux.org/autotiling.git"
 
 jobs:
   rebase:
@@ -14,11 +14,11 @@ jobs:
       name: checkout
       uses: actions/checkout@v2
     - 
-      name: check if behind base
+      name: check if behind upstream
       run: |
-        git remote add base ${BASE_GIT_HTTPS}
-        git fetch base
-        git merge-base --is-ancestor sway base/${BASE_BRANCH} && exit 1 || exit 0
+        git remote add upstream ${UPSTREAM_GIT_HTTPS}
+        git fetch upstream
+        git merge-base --is-ancestor upstream && exit 1 || exit 0
     - 
       name: rebase
       if: ${{ failure() }}
