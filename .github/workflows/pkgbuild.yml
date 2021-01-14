@@ -2,8 +2,9 @@ name: pkgbuild
 on:
   workflow_dispatch:
   push:
-    - master
-    - main
+    branches:
+      - master
+      - main
 
 jobs:
   pkgbuild:
