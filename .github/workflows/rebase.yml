@@ -1,0 +1,27 @@
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '30 2 * * *'
+  
+env:
+  BASE_GIT_HTTPS: "https://aur.archlinux.org/autotiling.git"
+
+jobs:
+  rebase:
+    runs-on: ubuntu-latest
+    steps:
+    - 
+      name: checkout
+      uses: actions/checkout@v2
+    - 
+      name: check if behind base
+      run: |
+        git remote add base ${BASE_GIT_HTTPS}
+        git fetch base
+        git merge-base --is-ancestor sway base/${BASE_BRANCH} && exit 1 || exit 0
+    - 
+      name: rebase
+      if: ${{ failure() }}
+      run: |
+        git rebase
+        git push --force-with-lease
