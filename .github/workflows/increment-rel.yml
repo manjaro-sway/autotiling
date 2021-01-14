@@ -7,11 +7,8 @@ on:
         description: 'pkgrel to set - will iterate if not given'     
         required: false
 
-  schedule:
-    - cron:  '*/30 * * * *'
-
 jobs:
-  rebase:
+  increment:
     runs-on: ubuntu-latest
     steps:
     - 
