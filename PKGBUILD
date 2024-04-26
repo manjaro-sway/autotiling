@@ -1,6 +1,6 @@
 # Maintainer: Piotr Miller <nwg.piotr@gmail.com>
 pkgname=('autotiling')
-pkgver=1.9.1
+pkgver=1.9.2
 pkgrel=1
 pkgdesc="Script for sway and i3 to automatically switch the horizontal / vertical window split orientation"
 arch=('any')
@@ -11,7 +11,7 @@ depends=('python-i3ipc')
 makedepends=('python-setuptools' 'python-wheel')
 source=("$pkgname-$pkgver.tar.gz::https://github.com/nwg-piotr/autotiling/archive/v$pkgver.tar.gz")
 
-md5sums=('a3a21139f574c4865e7381823cd97813')
+md5sums=('a26998419cdbd8bf3beb363801996843')
 
 package() {
   cd "${pkgname}-${pkgver}"
