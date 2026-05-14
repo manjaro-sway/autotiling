@@ -1,0 +1,4 @@
+_extends: manjaro-contrib/.github
+repository:
+  homepage: https://gitlab.archlinux.org/archlinux/packaging/packages/autotiling
+  topics: arch, package, any
