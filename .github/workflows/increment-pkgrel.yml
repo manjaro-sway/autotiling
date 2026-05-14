@@ -8,7 +8,7 @@ on:
 concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: true
-
+    
 jobs:
   increment-pkgrel:
     runs-on: ubuntu-latest

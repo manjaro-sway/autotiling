@@ -53,3 +53,6 @@ jobs:
         with:
           token: ${{ secrets.BOOTSTRAP_WORKFLOWS || github.token }}
           upstream: https://gitlab.archlinux.org/archlinux/packaging/packages/autotiling.git
+          dispatch-target: ${{ vars.PACKAGES_REPO }}
+          dispatch-token: ${{ secrets.DISPATCH_TOKEN }}
+      
